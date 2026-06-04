@@ -14,7 +14,7 @@ Three pages, each answering a different commercial question:
 
 1. **Brand Overview** (`/`) - Which brands look strongest by RGC's Breakthrough Score? Which ones have consumer voice data, and which are competitive context?
 2. **Brand Detail** (`/brand/:name`) - For a single brand: how does its stated positioning compare to what reviewers actually say? What's the consumer loving, what's frustrating them, and which competitors do they mention?
-3. **Transcript Browser** (`/transcripts`, `/transcripts/:id`) — Filterable list of all 130 reviewer transcripts. The detail view highlights the exact phrases that back each extracted signal.
+3. **Transcript Browser** (`/transcripts`, `/transcripts/:id`) - Filterable list of all 130 reviewer transcripts. The detail view highlights the exact phrases that back each extracted signal.
 
 ## The core technical feature: signals with evidence
 
@@ -23,7 +23,7 @@ The brief explicitly required that any suggested signal show the evidence behind
 - **130 transcripts** were run through Claude (`claude-sonnet-4-5`) ahead of time using an offline extraction script.
 - For each transcript, the model returns structured signals - **themes, praise, complaints, usage occasions, competitor mentions, purchase drivers, and a headline quote** — each tied to the exact phrase from the transcript that supports it.
 - The dashboard never calls an LLM at runtime. Extraction is a one-time offline step (`scripts/extract_signals.py`), and the results are saved to `data/signals.json` for fast lookup.
-- On the transcript detail page, the evidence phrases are highlighted in the original text — so the user can see exactly which sentence supports each tag.
+- On the transcript detail page, the evidence phrases are highlighted in the original text - so the user can see exactly which sentence supports each tag.
 
 This keeps the app fast, cheap, and reproducible while delivering on the brief's hardest requirement.
 
