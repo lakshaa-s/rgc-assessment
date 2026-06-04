@@ -1,4 +1,4 @@
-# RGC Technical Assessment — Soft Drinks Insight Dashboard
+# RGC Technical Assessment - Soft Drinks Insight Dashboard
 
 A full-stack dashboard that helps a brand or insights team understand a soft drinks category dataset by connecting consumer voice (reviewer transcripts) with brand and product intelligence.
 
