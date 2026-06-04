@@ -12,8 +12,8 @@ A full-stack dashboard that helps a brand or insights team understand a soft dri
 
 Three pages, each answering a different commercial question:
 
-1. **Brand Overview** (`/`) — Which brands look strongest by RGC's Breakthrough Score? Which ones have consumer voice data, and which are competitive context?
-2. **Brand Detail** (`/brand/:name`) — For a single brand: how does its stated positioning compare to what reviewers actually say? What's the consumer loving, what's frustrating them, and which competitors do they mention?
+1. **Brand Overview** (`/`) - Which brands look strongest by RGC's Breakthrough Score? Which ones have consumer voice data, and which are competitive context?
+2. **Brand Detail** (`/brand/:name`) - For a single brand: how does its stated positioning compare to what reviewers actually say? What's the consumer loving, what's frustrating them, and which competitors do they mention?
 3. **Transcript Browser** (`/transcripts`, `/transcripts/:id`) — Filterable list of all 130 reviewer transcripts. The detail view highlights the exact phrases that back each extracted signal.
 
 ## The core technical feature: signals with evidence
@@ -21,7 +21,7 @@ Three pages, each answering a different commercial question:
 The brief explicitly required that any suggested signal show the evidence behind it. I built that as the headline feature:
 
 - **130 transcripts** were run through Claude (`claude-sonnet-4-5`) ahead of time using an offline extraction script.
-- For each transcript, the model returns structured signals — **themes, praise, complaints, usage occasions, competitor mentions, purchase drivers, and a headline quote** — each tied to the exact phrase from the transcript that supports it.
+- For each transcript, the model returns structured signals - **themes, praise, complaints, usage occasions, competitor mentions, purchase drivers, and a headline quote** — each tied to the exact phrase from the transcript that supports it.
 - The dashboard never calls an LLM at runtime. Extraction is a one-time offline step (`scripts/extract_signals.py`), and the results are saved to `data/signals.json` for fast lookup.
 - On the transcript detail page, the evidence phrases are highlighted in the original text — so the user can see exactly which sentence supports each tag.
 
@@ -78,7 +78,7 @@ Then visit http://127.0.0.1:8000 for the health check. Key endpoints:
 
 - `GET /` — counts of loaded records
 - `GET /brands` — list of brands with breakthrough score, product count, transcript count
-- `GET /brands/{brand_name}` — single brand: full info, products, aggregated signals, transcripts
+- `GET /brands/{brand_name}` - single brand: full info, products, aggregated signals, transcripts
 - `GET /transcripts?brand=...&sentiment=...` — filterable transcript list
 - `GET /transcripts/{review_id}` — single transcript with full text, extracted signals, reviewer
 - `GET /insights/positioning` — the key commercial view: stated positioning vs reviewer voice for each transcript-backed brand
@@ -102,7 +102,7 @@ export ANTHROPIC_API_KEY=sk-ant-...
 python scripts/extract_signals.py
 ```
 
-The script is resumable — it skips any reviewIds already in `data/signals.json`. Full run is ~10 minutes and costs <$1.
+The script is resumable - it skips any reviewIds already in `data/signals.json`. Full run is ~10 minutes and costs <$1.
 
 ## Deployment
 
@@ -113,7 +113,7 @@ Both auto-deploy from GitHub `main`.
 
 ## Notes on the dataset
 
-Transcript coverage is partial by design — 4 of 9 brands have reviewer transcripts (Double Dutch, Fix8, SKIP, UNAI). The remaining 5 brands (Trip, DASH, Hip Pop, Agua de Madre, Dalston's) are catalogue-only and provide competitive context. The dashboard treats this as a feature rather than a problem: reviewed brands get a "consumer voice" experience, competitor-context brands get a positioning-only experience, and both feed into the cross-brand comparisons.
+Transcript coverage is partial by design - 4 of 9 brands have reviewer transcripts (Double Dutch, Fix8, SKIP, UNAI). The remaining 5 brands (Trip, DASH, Hip Pop, Agua de Madre, Dalston's) are catalogue-only and provide competitive context. The dashboard treats this as a feature rather than a problem: reviewed brands get a "consumer voice" experience, competitor-context brands get a positioning-only experience, and both feed into the cross-brand comparisons.
 
 ## AI usage
 
