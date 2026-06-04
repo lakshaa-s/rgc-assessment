@@ -396,3 +396,120 @@ a:hover { text-decoration: underline; }
   color: #999;
   font-size: 14px;
 }
+/* Append these styles to the END of your existing App.css */
+
+.insights-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.insight-card {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-left: 3px solid #2a4880;
+  border-radius: 6px;
+  padding: 16px 18px;
+}
+
+.insight-stat {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #2a4880;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.insight-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+}
+
+.insight-detail {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.45;
+  margin: 0;
+}
+/* Append these styles to the END of your existing App.css */
+
+.insights-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.insight-card {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-left: 3px solid #2a4880;
+  border-radius: 6px;
+  padding: 16px 18px;
+}
+
+.insight-stat {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #2a4880;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.insight-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+}
+
+.insight-detail {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.45;
+  margin: 0;
+}
+/* Append these styles to the END of your existing App.css */
+
+.insights-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.insight-card {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-left: 3px solid #2a4880;
+  border-radius: 6px;
+  padding: 16px 18px;
+}
+
+.insight-stat {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #2a4880;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.insight-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+}
+
+.insight-detail {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.45;
+  margin: 0;
+}

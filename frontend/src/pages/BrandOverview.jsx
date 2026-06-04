@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, Legend } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import { api } from "../lib/api.js";
 
 function scoreClass(score) {
@@ -37,6 +37,8 @@ export default function BrandOverview() {
         Nine brands, four with reviewer transcripts and five providing competitive context.
         Sorted by Breakthrough Score — RGC's success-prediction metric.
       </p>
+
+      <InsightCards />
 
       <div className="section">
         <h2>Breakthrough Score by brand</h2>
@@ -108,5 +110,37 @@ function BrandCard({ brand, reviewed }) {
         </div>
       </div>
     </Link>
+  );
+}
+
+function InsightCards() {
+  const cards = [
+    {
+      stat: "3 of top 3",
+      title: "The leaders are quiet",
+      detail: "The three highest Breakthrough Scores belong to brands with no reviewer transcripts (Trip, DASH, Hip Pop). The reviewed brands sit further down — opportunity to bring competitor signal in.",
+    },
+    {
+      stat: "Most-mentioned",
+      title: "Schweppes is the default mental anchor",
+      detail: "Across reviewers, Schweppes dominates competitor mentions — even when the product is a wellness drink, not a mixer. Positioning conversations should probably start there.",
+    },
+    {
+      stat: "No → Yes",
+      title: "Trial converts",
+      detail: "Several reviewers shift from 'wouldn't buy' to 'would buy' after tasting (Double Dutch in particular). A measurable trial-to-conversion lift sampling-led promotion can lean into.",
+    },
+  ];
+
+  return (
+    <div className="insights-row">
+      {cards.map((c, i) => (
+        <div key={i} className="insight-card">
+          <div className="insight-stat">{c.stat}</div>
+          <h3 className="insight-title">{c.title}</h3>
+          <p className="insight-detail">{c.detail}</p>
+        </div>
+      ))}
+    </div>
   );
 }
